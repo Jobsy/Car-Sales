@@ -21,13 +21,18 @@ export const appReducer = (state = initialState, action) => {
   switch (action.type) {
     case types.ADD_ITEM:
       newFeatures = state.car.features
-        .filter(id => id !== action.payload)
-        .concat(action.payload);
+
+      // We aren't doing much here...the action.payload is the feature, right?
+      //So I'm just saying...keep the state the same...
+      // the car object all stays the same...
+      //except the features! Which are the exisiting features, concatted with the payload!
+      //Simple!
+      
       return {
         ...state,
         car: {
           ...state.car,
-          features: newFeatures
+          features: state.car.features.concat(action.payload),
         },
       }
 
